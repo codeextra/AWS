@@ -1,4 +1,9 @@
-
+ECS
+ - Amazon's managed EC2 container service
+ - Containers are created from a read only template called Image
+ - Images are stored in ECR 
+ - Task Definition (JSON) 
+ 
 Volumes
  - EBS can be detached and reattached to instances whereas Instance Store can't be detached
  - EBS is persistent and instance store backed volume is not (ephemeral)
@@ -41,6 +46,7 @@ Workspaces
 - Use it like laptop (install applications, Data in D Drive is backed up every 12 hrs)
 
 VPC
+- VPC peering does not support edge to edge routing
 - When u create a custom VPC these are created by default - SG, ACL and Route Table
 - ONLY ONE Internet Gateway(IG) per VPC
 - Security groups act like a firewall at the instance level, whereas NACL's are an additional layer of security that act at the subnet level
