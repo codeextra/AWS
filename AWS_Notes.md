@@ -1,3 +1,31 @@
+EC2
+
+Security Group
+- Security Groups are stateful (means if inbound rule exists and no outbound rule, still response will be sent out. 
+- All inbound traffic is blocked by default and we can't custom deny (only Allow)
+- All outbound traffic is allowed by default 
+- Can't block specific IP address traffic with Security Group whereas NACL can do that
+- NACL's are stateless (there should be a corresponding o/b rule for each i/b rule)
+- Default monitoring is 5 mins interval and can be increased upto 1 min
+
+EBS
+- 3 Types (GP2, IOPS, Magnetic Tape)
+- Root volumes are attached to EC2 by default and can ONLY be encrypted thru copy of AMI
+- To move EC2 volumes to a diff AZ/region take a snapshot/image of it and copy.
+- EBS volumes won't be deleted when EC2 is terminated, only root is deleted.
+- EBS volumes MUST be in the same AZ as EC2
+- EBS volume size can be changed on the fly (recommended to stop and change)
+- EBS and its snapshots are encrypted by default. Unencrypted snapshots can be shared or made public(can even sell in marketplace)
+- Instance store volumes are sometimes called Ephemeral Storage (Temporary storage)
+- By default both root volumes (EBS / IS) will be deleted when instance is terminated but with EBS we can choose to keep it
+
+ELB
+- Application LB, Network LB, Classic LB
+- ALB operates at Layer 7 to load balance traffic across web servers
+- NLB operates at Layer 4 to load balance TCP traffic (used for extreme performance)
+- 504 error indicates load balancing error
+- X-Forwarded-For header will indicate the end user source IPV4 along with the load balancer
+
 ECS
  - Amazon's managed EC2 container service
  - Containers are created from a read only template called Image
