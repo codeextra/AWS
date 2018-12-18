@@ -5,6 +5,7 @@ IAM
 - IAM is global , users /roles/groups/policies included
 - username/pwd for console access and access id/security access key for CLI access (generated and emailed)
 - Root Account has admin access
+- ONLY one IAM role per EC2 instance
 
 S3
 - S3 bucket names are global
@@ -253,3 +254,27 @@ Route53
   SRV (service locator)
   TXT (text record)
   Additionally, Amazon Route 53 offers ‘Alias’ records (an Amazon Route 53-specific virtual record). Alias records are used to map resource record sets in your hosted zone to Amazon Elastic Load Balancing load balancers, Amazon CloudFront distributions, AWS Elastic Beanstalk environments, or Amazon S3 buckets that are configured as websites. Alias records work like a CNAME record in that you can map one DNS name (example.com) to another ‘target’ DNS name (elb1234.elb.amazonaws.com). They differ from a CNAME record in that they are not visible to resolvers. Resolvers only see the A record and the resulting IP address of the target record.
+
+  EXAM TIPS
+  -  EBS  can be used for web servers and workers
+  -  IAM roles for tasks - Used for multi-tenant EC2 access
+  -  Session Data - DynamoDB and Elastic Cache
+  -  Redshift Encryption -KMS
+  -  DynamoDB - most suited for metadata storage
+  -  MultiValue Routing - DNS queries based routing
+  -  NAT Gateway should be created in each AZ for HA.
+  -  Aurora - Fully managed and MySQL / PostGre Sql COMPATIBLE
+  -  NAT Gateway should always be created in public subnet
+  -  Kinesis - REAL time app logs loading
+  -  For Auto Scaling issues ensure right metrics are used to trigger the scale out
+  -  Use Lambda for admin jobs in C#
+  -  Spot Instances - for non critical applications like batch, background processing and logs
+  -  Amazon Elastic search can be integrated with S3 and Lambda
+  -  Docker containers are well suited for batch . Image it and deploy to ECS
+  -  AWS DataSync - online data tx service that makes it faster and simpler to move data b/w on-prem storage and EFS.
+  -  Is VPC peering traffic within the region encrypted - NO, but it remains private and isolated
+  -  SQS FIFO can be used to queue DB writes in case of heavy write load
+  -  DR - Aurora read replica
+  -  Opsworks - defines stacks for different layers of the application
+  -  Automation of tasks can be done with custom user data scripts in AWS while launching an instance
+  -  The Public IP address of EÇ2 changes upon restart
